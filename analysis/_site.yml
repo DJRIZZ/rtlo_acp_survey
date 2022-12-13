@@ -1,7 +1,7 @@
-name: "RTLO ACP Survey"
+name: RTLO ACP Survey
 output_dir: ../docs
 navbar:
-  title: "RTLO ACP Survey"
+  title: RTLO ACP Survey
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fab fa-github
+    text: Source code
+    href: https://github.com/DJRIZZ/rtlo_acp_survey
 output:
   workflowr::wflow_html:
     toc: yes
