@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Dan Rizzolo" />
+
+<meta name="date" content="2022-12-12" />
+
+<title>plot_loon_counts_plot_visit</title>
+
+<script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">RTLO ACP Survey</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">plot_loon_counts_plot_visit</h1>
+<h4 class="author">Dan Rizzolo</h4>
+<h4 class="date">2022-12-12</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2022-12-12
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>rtlo_acp_survey/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.0). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20221207code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20221207)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20221207code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20221207)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong99f6ecb">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong> 99f6ecb
+</a>
+</p>
+</div>
+<div id="strongRepositoryversionstrong99f6ecb"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version 99f6ecb.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  code/plot_palo_counts_plot_visit.R
+    Untracked:  code/rtlo_acp_survey_summary.R
+    Untracked:  data/2022_ACP_loon_data.csv
+    Untracked:  data/2022_ACP_loon_data_with_zeros.csv
+    Untracked:  output/figures/
+
+Unstaged changes:
+    Modified:   README.md
+    Modified:   data/README.md
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown
+(<code>analysis/plot_loon_obs_nests_plot_visit.Rmd</code>) and HTML
+(<code>docs/plot_loon_obs_nests_plot_visit.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+99f6ecb
+</td>
+<td>
+DJRIZZ
+</td>
+<td>
+2022-12-12
+</td>
+<td>
+initial commit
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<p>Code to create figure of counts by plot for PALO and RTLO birds and
+nests for visit 1 and visit2.</p>
+<pre class="r"><code># Read in data with zero counts created with &quot;rtlo_acp_survey_summary.R&quot;
+data &lt;- read.csv(&quot;data/2022_ACP_loon_data_with_zeros.csv&quot;)
+
+# check &#39;em out
+str(data)</code></pre>
+<pre><code>&#39;data.frame&#39;:   530 obs. of  21 variables:
+ $ X              : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ OBJECTID       : int  272 263 261 296 262 266 265 298 268 270 ...
+ $ count          : int  2 1 1 1 2 1 1 2 1 2 ...
+ $ species        : chr  &quot;PALO&quot; &quot;PALO&quot; &quot;RTLO&quot; &quot;PALO&quot; ...
+ $ Plot           : int  2 2 2 2 2 2 2 2 2 2 ...
+ $ Visit          : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ nest           : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ pair           : int  0 0 0 0 1 0 0 1 0 1 ...
+ $ countChicks    : logi  NA NA NA NA NA NA ...
+ $ countEggs      : int  0 NA NA NA NA NA NA NA NA NA ...
+ $ activity       : chr  &quot;By Nest&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+ $ Notes          : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;lake only 10% open&quot; ...
+ $ Timestamp_UTC  : chr  &quot;2022-06-27 18:55&quot; &quot;2022-06-27 17:41&quot; &quot;2022-06-27 17:46&quot; &quot;2022-06-27 18:01&quot; ...
+ $ Timestamp_Local: chr  &quot;2022-06-27 10:55&quot; &quot;2022-06-27 9:41&quot; &quot;2022-06-27 9:46&quot; &quot;2022-06-27 10:01&quot; ...
+ $ Year           : int  2022 2022 2022 2022 2022 2022 2022 2022 2022 2022 ...
+ $ Day_of_Year    : int  178 178 178 178 178 178 178 178 178 178 ...
+ $ Latitude       : num  70.1 70.1 70.1 70.1 70.1 ...
+ $ Longitude      : num  -146 -146 -146 -146 -146 ...
+ $ Datum          : chr  &quot;WGS84&quot; &quot;WGS84&quot; &quot;WGS84&quot; &quot;WGS84&quot; ...
+ $ GpsPoint_ID    : int  159970 157864 158004 167486 158624 158811 158962 168116 159583 159735 ...
+ $ Observation_ID : int  272 263 261 296 262 266 265 298 268 270 ...</code></pre>
+<pre class="r"><code>summary(data)</code></pre>
+<pre><code>       X            OBJECTID         count         species         
+ Min.   :  1.0   Min.   :  1.0   Min.   :0.000   Length:530        
+ 1st Qu.:133.2   1st Qu.:133.2   1st Qu.:1.000   Class :character  
+ Median :265.5   Median :265.5   Median :1.000   Mode  :character  
+ Mean   :265.5   Mean   :265.8   Mean   :1.336                     
+ 3rd Qu.:397.8   3rd Qu.:397.8   3rd Qu.:2.000                     
+ Max.   :530.0   Max.   :532.0   Max.   :4.000                     
+                                                                   
+      Plot           Visit            nest             pair       
+ Min.   : 1.00   Min.   :1.000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.: 3.00   1st Qu.:1.000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :11.00   Median :2.000   Median :1.0000   Median :0.0000  
+ Mean   :11.38   Mean   :1.532   Mean   :0.5226   Mean   :0.3509  
+ 3rd Qu.:19.00   3rd Qu.:2.000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :25.00   Max.   :2.000   Max.   :1.0000   Max.   :1.0000  
+                                                                  
+ countChicks      countEggs       activity            Notes          
+ Mode:logical   Min.   :0.000   Length:530         Length:530        
+ NA&#39;s:530       1st Qu.:1.000   Class :character   Class :character  
+                Median :1.000   Mode  :character   Mode  :character  
+                Mean   :1.255                                        
+                3rd Qu.:2.000                                        
+                Max.   :2.000                                        
+                NA&#39;s   :428                                          
+ Timestamp_UTC      Timestamp_Local         Year       Day_of_Year 
+ Length:530         Length:530         Min.   :2022   Min.   :177  
+ Class :character   Class :character   1st Qu.:2022   1st Qu.:180  
+ Mode  :character   Mode  :character   Median :2022   Median :182  
+                                       Mean   :2022   Mean   :183  
+                                       3rd Qu.:2022   3rd Qu.:186  
+                                       Max.   :2022   Max.   :189  
+                                                      NA&#39;s   :32   
+    Latitude       Longitude         Datum            GpsPoint_ID    
+ Min.   :69.83   Min.   :-148.8   Length:530         Min.   :   357  
+ 1st Qu.:70.06   1st Qu.:-147.3   Class :character   1st Qu.: 50650  
+ Median :70.10   Median :-146.8   Mode  :character   Median :137495  
+ Mean   :70.08   Mean   :-146.7                      Mean   :133693  
+ 3rd Qu.:70.13   3rd Qu.:-145.8                      3rd Qu.:215376  
+ Max.   :70.18   Max.   :-145.4                      Max.   :290868  
+ NA&#39;s   :32      NA&#39;s   :32                          NA&#39;s   :32      
+ Observation_ID 
+ Min.   :  1.0  
+ 1st Qu.:133.2  
+ Median :265.5  
+ Mean   :265.8  
+ 3rd Qu.:397.8  
+ Max.   :532.0  
+                </code></pre>
+<pre class="r"><code>data$count &lt;- as.numeric(data$count)
+data$nest &lt;- as.numeric(data$nest)
+
+# reduce to necessary columns
+data_wide &lt;- cbind.data.frame(species = data$species, plot = data$Plot, visit = data$Visit, bird = data$count, nest = data$nest)
+
+# rearrange to long format
+data_long &lt;- reshape(data_wide,
+                     varying = c(&quot;bird&quot;, &quot;nest&quot;),
+                     v.names = &quot;count&quot;,
+                     timevar = &quot;count_type&quot;,
+                     times = c(&quot;bird&quot;, &quot;nest&quot;),
+                     new.row.names = 1:1060,
+                     direction = &quot;long&quot;)
+
+# aggregate to sum counts y plot, species, count  type
+sum_plot &lt;- aggregate(data_long$count ~ data_long$species + data_long$plot + data_long$visit + data_long$count_type, FUN = &quot;sum&quot;)
+colnames(sum_plot) &lt;- c(&quot;species&quot;, &quot;plot&quot;, &quot;visit&quot;, &quot;count_type&quot;, &quot;count&quot;)
+
+# plot PALO
+sum_palo &lt;- subset(sum_plot, species == &quot;PALO&quot;) # subset PALO data
+p.palo &lt;- ggplot() +
+  geom_point(data = sum_palo, aes(x = plot, y = count, color = as.character(visit), shape = count_type), size = 2) +
+  scale_x_continuous(breaks = seq(1, 25, by = 1))+
+  scale_color_manual(values = c(&quot;darkblue&quot;, &quot;royalblue1&quot;)) +
+  labs(x = &quot;Plot&quot;, y = &quot;Count&quot;, color = &quot;Visit&quot;, shape = &quot;Count Type&quot;) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 9),
+        axis.title = element_text(size = 11, face = &quot;bold&quot;),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        legend.position=c(0.9,0.75))
+p.palo</code></pre>
+<p><img src="figure/plot_loon_obs_nests_plot_visit.Rmd/plot%20by%20plot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># plot RTLO
+sum_rtlo &lt;- subset(sum_plot, species == &quot;RTLO&quot;) # subset RTLO data
+p.rtlo &lt;- ggplot() +
+  geom_point(data = sum_rtlo, aes(x = plot, y = count, color = as.character(visit), shape = count_type), size = 2) +
+  scale_x_continuous(breaks = seq(1, 25, by = 1))+
+  scale_color_manual(values = c(&quot;red4&quot;, &quot;red&quot;)) +
+  labs(x = &quot;Plot&quot;, y = &quot;Count&quot;, color = &quot;Visit&quot;, shape = &quot;Count Type&quot;) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 9),
+        axis.title = element_text(size = 11, face = &quot;bold&quot;),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        legend.position=c(0.9,0.75))
+p.rtlo</code></pre>
+<p><img src="figure/plot_loon_obs_nests_plot_visit.Rmd/plot%20by%20plot-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># create panel fig with ggpubr::ggarrange
+panel&lt;-ggarrange(p.palo,p.rtlo,
+                 widths=c(6,6),
+                 labels=c(&quot;A&quot;,&quot;B&quot;),
+                 ncol=1, nrow=2, common.legend=FALSE,
+                 legend=&quot;top&quot;)
+panel</code></pre>
+<p><img src="figure/plot_loon_obs_nests_plot_visit.Rmd/plot%20by%20plot-3.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># save figure
+#ggsave(&quot;output/figures/plot_palo_rtlo_counts_plot.png&quot;, width=6.5, height=6, units=&quot;in&quot;, dpi=300)</code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] ggpubr_0.5.0    ggplot2_3.4.0   workflowr_1.7.0
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.2.0 xfun_0.34        bslib_0.4.1      purrr_0.3.5     
+ [5] carData_3.0-5    colorspace_2.0-3 vctrs_0.5.0      generics_0.1.3  
+ [9] htmltools_0.5.3  yaml_2.3.6       utf8_1.2.2       rlang_1.0.6     
+[13] jquerylib_0.1.4  later_1.3.0      pillar_1.8.1     glue_1.6.2      
+[17] withr_2.5.0      DBI_1.1.3        lifecycle_1.0.3  stringr_1.4.1   
+[21] munsell_0.5.0    ggsignif_0.6.4   gtable_0.3.1     evaluate_0.18   
+[25] labeling_0.4.2   knitr_1.40       callr_3.7.3      fastmap_1.1.0   
+[29] httpuv_1.6.6     ps_1.7.2         fansi_1.0.3      highr_0.9       
+[33] broom_1.0.1      Rcpp_1.0.9       backports_1.4.1  promises_1.2.0.1
+[37] scales_1.2.1     cachem_1.0.6     jsonlite_1.8.3   abind_1.4-5     
+[41] farver_2.1.1     fs_1.5.2         digest_0.6.30    stringi_1.7.8   
+[45] rstatix_0.7.1    processx_3.8.0   dplyr_1.0.10     getPass_0.2-2   
+[49] cowplot_1.1.1    rprojroot_2.0.3  grid_4.2.2       cli_3.4.1       
+[53] tools_4.2.2      magrittr_2.0.3   sass_0.4.2       tibble_3.1.8    
+[57] car_3.1-1        tidyr_1.2.1      whisker_0.4      pkgconfig_2.0.3 
+[61] assertthat_0.2.1 rmarkdown_2.17   httr_1.4.4       rstudioapi_0.14 
+[65] R6_2.5.1         git2r_0.30.1     compiler_4.2.2  </code></pre>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
