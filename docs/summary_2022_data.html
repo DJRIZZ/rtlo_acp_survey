@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="" />
+
+<meta name="date" content="2022-12-07" />
+
+<title>summary_2022_data</title>
+
+<script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">RTLO ACP Survey</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">summary_2022_data</h1>
+<h4 class="author"></h4>
+<h4 class="date">2022-12-07</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2022-12-12
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>rtlo_acp_survey/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.0). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20221207code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20221207)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20221207code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20221207)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongdc5ec3c">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong> dc5ec3c
+</a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongdc5ec3c"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version dc5ec3c.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  analysis/plot_loon_obs_nests_plot_visit.Rmd
+    Untracked:  code/plot_palo_counts_plot_visit.R
+    Untracked:  code/rtlo_acp_survey_summary.R
+    Untracked:  data/2022_ACP_loon_data.csv
+    Untracked:  data/2022_ACP_loon_data_with_zeros.csv
+    Untracked:  output/figures/
+
+Unstaged changes:
+    Modified:   README.md
+    Modified:   data/README.md
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/summary_2022_data.Rmd</code>) and
+HTML (<code>docs/summary_2022_data.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+dc5ec3c
+</td>
+<td>
+DJRIZZ
+</td>
+<td>
+2022-12-12
+</td>
+<td>
+completed summary code used for report
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Code to summarize data below:</p>
+<pre class="r"><code># code to create data summaries and figures based on 2022 data from the acp loon helicopter survey
+# Dan Rizzolo
+# 2022-12-07
+
+# read in data: datatable output from ParkObserver Survey software used for data collection (Sadie Ulman, Tamara Zeller, Brian Uher-Koch) saved from Excel as CSV
+data &lt;- read.csv(&quot;data/2022_ACP_loon_data.csv&quot;)
+
+data$count &lt;-as.numeric(data$count)
+data$nest &lt;- as.numeric(data$nest)
+data$pair &lt;- as.numeric(data$pair)
+
+# check &#39;em out
+str(data)</code></pre>
+<pre><code>&#39;data.frame&#39;:   498 obs. of  20 variables:
+ $ OBJECTID       : int  272 263 261 296 262 266 265 298 268 270 ...
+ $ count          : num  2 1 1 1 2 1 1 2 1 2 ...
+ $ species        : chr  &quot;PALO&quot; &quot;PALO&quot; &quot;RTLO&quot; &quot;PALO&quot; ...
+ $ Plot           : int  2 2 2 2 2 2 2 2 2 2 ...
+ $ Visit          : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ nest           : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ pair           : num  0 0 0 0 1 0 0 1 0 1 ...
+ $ countChicks    : logi  NA NA NA NA NA NA ...
+ $ countEggs      : int  0 NA NA NA NA NA NA NA NA NA ...
+ $ activity       : chr  &quot;By Nest&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+ $ Notes          : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;lake only 10% open&quot; ...
+ $ Timestamp_UTC  : chr  &quot;2022-06-27 18:55&quot; &quot;2022-06-27 17:41&quot; &quot;2022-06-27 17:46&quot; &quot;2022-06-27 18:01&quot; ...
+ $ Timestamp_Local: chr  &quot;2022-06-27 10:55&quot; &quot;2022-06-27 9:41&quot; &quot;2022-06-27 9:46&quot; &quot;2022-06-27 10:01&quot; ...
+ $ Year           : int  2022 2022 2022 2022 2022 2022 2022 2022 2022 2022 ...
+ $ Day_of_Year    : int  178 178 178 178 178 178 178 178 178 178 ...
+ $ Latitude       : num  70.1 70.1 70.1 70.1 70.1 ...
+ $ Longitude      : num  -146 -146 -146 -146 -146 ...
+ $ Datum          : chr  &quot;WGS84&quot; &quot;WGS84&quot; &quot;WGS84&quot; &quot;WGS84&quot; ...
+ $ GpsPoint_ID    : int  159970 157864 158004 167486 158624 158811 158962 168116 159583 159735 ...
+ $ Observation_ID : int  272 263 261 296 262 266 265 298 268 270 ...</code></pre>
+<pre class="r"><code># NB &quot;count&quot; refers to the number of individuals seen of the individual species at a location, not number of nests, as per Sadie Ulman&#39;s email from 31 Oct 2022
+# e.g., if count = 2 and pair =1 , then count is indicating the 2 individuals that were identified as a pair
+
+summary(data)</code></pre>
+<pre><code>    OBJECTID         count         species               Plot     
+ Min.   :  1.0   Min.   :1.000   Length:498         Min.   : 2.0  
+ 1st Qu.:125.2   1st Qu.:1.000   Class :character   1st Qu.: 3.0  
+ Median :249.5   Median :1.000   Mode  :character   Median :11.0  
+ Mean   :249.7   Mean   :1.422                      Mean   :11.4  
+ 3rd Qu.:373.8   3rd Qu.:2.000                      3rd Qu.:19.0  
+ Max.   :500.0   Max.   :4.000                      Max.   :25.0  
+                                                                  
+     Visit            nest             pair        countChicks   
+ Min.   :1.000   Min.   :0.0000   Min.   :0.0000   Mode:logical  
+ 1st Qu.:1.000   1st Qu.:0.0000   1st Qu.:0.0000   NA&#39;s:498      
+ Median :2.000   Median :1.0000   Median :0.0000                 
+ Mean   :1.534   Mean   :0.5562   Mean   :0.3735                 
+ 3rd Qu.:2.000   3rd Qu.:1.0000   3rd Qu.:1.0000                 
+ Max.   :2.000   Max.   :1.0000   Max.   :1.0000                 
+                                                                 
+   countEggs       activity            Notes           Timestamp_UTC     
+ Min.   :0.000   Length:498         Length:498         Length:498        
+ 1st Qu.:1.000   Class :character   Class :character   Class :character  
+ Median :1.000   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :1.255                                                           
+ 3rd Qu.:2.000                                                           
+ Max.   :2.000                                                           
+ NA&#39;s   :396                                                             
+ Timestamp_Local         Year       Day_of_Year     Latitude    
+ Length:498         Min.   :2022   Min.   :177   Min.   :69.83  
+ Class :character   1st Qu.:2022   1st Qu.:180   1st Qu.:70.06  
+ Mode  :character   Median :2022   Median :182   Median :70.10  
+                    Mean   :2022   Mean   :183   Mean   :70.08  
+                    3rd Qu.:2022   3rd Qu.:186   3rd Qu.:70.13  
+                    Max.   :2022   Max.   :189   Max.   :70.18  
+                                                                
+   Longitude         Datum            GpsPoint_ID     Observation_ID 
+ Min.   :-148.8   Length:498         Min.   :   357   Min.   :  1.0  
+ 1st Qu.:-147.3   Class :character   1st Qu.: 50650   1st Qu.:125.2  
+ Median :-146.8   Mode  :character   Median :137495   Median :249.5  
+ Mean   :-146.7                      Mean   :133693   Mean   :249.7  
+ 3rd Qu.:-145.8                      3rd Qu.:215376   3rd Qu.:373.8  
+ Max.   :-145.4                      Max.   :290868   Max.   :500.0  
+                                                                     </code></pre>
+<pre class="r"><code>table(data$species)</code></pre>
+<pre><code>
+PALO RTLO 
+ 354  144 </code></pre>
+<pre class="r"><code>table(data$Plot)</code></pre>
+<pre><code>
+  2   3   4   5   6   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22 
+107  52  22   7  17   2   1  39   8  34   9   3  14   2  11  12  50  13  15  42 
+ 24  25 
+ 32   6 </code></pre>
+<pre class="r"><code>table(data$Plot, data$Visit)</code></pre>
+<pre><code>    
+      1  2
+  2  39 68
+  3  28 24
+  4   4 18
+  5   2  5
+  6   6 11
+  8   2  0
+  9   1  0
+  10 18 21
+  11  4  4
+  12 19 15
+  13  4  5
+  14  2  1
+  15  7  7
+  16  1  1
+  17  7  4
+  18  6  6
+  19 31 19
+  20  4  9
+  21  9  6
+  22 16 26
+  24 16 16
+  25  6  0</code></pre>
+<pre class="r"><code>table(data$Plot, data$Visit, data$species)</code></pre>
+<pre><code>, ,  = PALO
+
+    
+      1  2
+  2  33 48
+  3  14 13
+  4   4 10
+  5   1  3
+  6   0  2
+  8   0  0
+  9   0  0
+  10 17 20
+  11  4  4
+  12 17 15
+  13  1  3
+  14  2  1
+  15  7  7
+  16  1  1
+  17  7  4
+  18  6  6
+  19 13  9
+  20  4  9
+  21  7  5
+  22  9 15
+  24 14 12
+  25  6  0
+
+, ,  = RTLO
+
+    
+      1  2
+  2   6 20
+  3  14 11
+  4   0  8
+  5   1  2
+  6   6  9
+  8   2  0
+  9   1  0
+  10  1  1
+  11  0  0
+  12  2  0
+  13  3  2
+  14  0  0
+  15  0  0
+  16  0  0
+  17  0  0
+  18  0  0
+  19 18 10
+  20  0  0
+  21  2  1
+  22  7 11
+  24  2  4
+  25  0  0</code></pre>
+<pre class="r"><code># convert to long format
+data_wide &lt;- cbind.data.frame(species = data$species, plot = data$Plot, visit = data$Visit, bird = data$count, nest = data$nest)
+data_long &lt;- reshape(data_wide,
+                     varying = c(&quot;bird&quot;, &quot;nest&quot;),
+                     v.names = &quot;count&quot;,
+                     timevar = &quot;count_type&quot;,
+                     times = c(&quot;bird&quot;, &quot;nest&quot;),
+                     #new.row.names = 1:996,
+                     direction = &quot;long&quot;)
+data_long &lt;- as.data.frame(data_long)
+
+data_long$count &lt;-as.numeric(data_long$count)
+
+# Check for missing zeros (plots visited and no birds or nests observed)
+sum_plot &lt;- aggregate(data_long$count ~ data_long$species + data_long$plot + data_long$visit + data_long$count_type, FUN = &quot;sum&quot;)
+colnames(sum_plot) &lt;- c(&quot;species&quot;, &quot;plot&quot;, &quot;visit&quot;, &quot;count_type&quot;, &quot;count&quot;)
+sum_plot</code></pre>
+<pre><code>    species plot visit count_type count
+1      PALO    2     1       bird    48
+2      RTLO    2     1       bird     6
+3      PALO    3     1       bird    22
+4      RTLO    3     1       bird    18
+5      PALO    4     1       bird     6
+6      PALO    5     1       bird     1
+7      RTLO    5     1       bird     2
+8      RTLO    6     1       bird     8
+9      RTLO    8     1       bird     3
+10     RTLO    9     1       bird     1
+11     PALO   10     1       bird    23
+12     RTLO   10     1       bird     1
+13     PALO   11     1       bird     7
+14     PALO   12     1       bird    22
+15     RTLO   12     1       bird     3
+16     PALO   13     1       bird     3
+17     RTLO   13     1       bird     3
+18     PALO   14     1       bird     3
+19     PALO   15     1       bird    12
+20     PALO   16     1       bird     1
+21     PALO   17     1       bird    11
+22     PALO   18     1       bird     9
+23     PALO   19     1       bird    16
+24     RTLO   19     1       bird    24
+25     PALO   20     1       bird     8
+26     PALO   21     1       bird    11
+27     RTLO   21     1       bird     3
+28     PALO   22     1       bird    11
+29     RTLO   22     1       bird     7
+30     PALO   24     1       bird    19
+31     RTLO   24     1       bird     2
+32     PALO   25     1       bird    12
+33     PALO    2     2       bird    75
+34     RTLO    2     2       bird    29
+35     PALO    3     2       bird    19
+36     RTLO    3     2       bird    17
+37     PALO    4     2       bird    15
+38     RTLO    4     2       bird    14
+39     PALO    5     2       bird     5
+40     RTLO    5     2       bird     2
+41     PALO    6     2       bird     3
+42     RTLO    6     2       bird    10
+43     PALO   10     2       bird    29
+44     RTLO   10     2       bird     1
+45     PALO   11     2       bird     4
+46     PALO   12     2       bird    19
+47     PALO   13     2       bird     4
+48     RTLO   13     2       bird     2
+49     PALO   14     2       bird     1
+50     PALO   15     2       bird    11
+51     PALO   16     2       bird     2
+52     PALO   17     2       bird     5
+53     PALO   18     2       bird    10
+54     PALO   19     2       bird    10
+55     RTLO   19     2       bird    12
+56     PALO   20     2       bird    13
+57     PALO   21     2       bird     9
+58     RTLO   21     2       bird     1
+59     PALO   22     2       bird    25
+60     RTLO   22     2       bird    12
+61     PALO   24     2       bird    17
+62     RTLO   24     2       bird     6
+63     PALO    2     1       nest     9
+64     RTLO    2     1       nest     4
+65     PALO    3     1       nest     8
+66     RTLO    3     1       nest    11
+67     PALO    4     1       nest     1
+68     PALO    5     1       nest     0
+69     RTLO    5     1       nest     0
+70     RTLO    6     1       nest     5
+71     RTLO    8     1       nest     1
+72     RTLO    9     1       nest     0
+73     PALO   10     1       nest     7
+74     RTLO   10     1       nest     1
+75     PALO   11     1       nest     2
+76     PALO   12     1       nest     9
+77     RTLO   12     1       nest     1
+78     PALO   13     1       nest     0
+79     RTLO   13     1       nest     3
+80     PALO   14     1       nest     1
+81     PALO   15     1       nest     5
+82     PALO   16     1       nest     0
+83     PALO   17     1       nest     3
+84     PALO   18     1       nest     5
+85     PALO   19     1       nest     8
+86     RTLO   19     1       nest     6
+87     PALO   20     1       nest     1
+88     PALO   21     1       nest     6
+89     RTLO   21     1       nest     1
+90     PALO   22     1       nest     5
+91     RTLO   22     1       nest     5
+92     PALO   24     1       nest     9
+93     RTLO   24     1       nest     2
+94     PALO   25     1       nest     3
+95     PALO    2     2       nest    27
+96     RTLO    2     2       nest    13
+97     PALO    3     2       nest     7
+98     RTLO    3     2       nest    10
+99     PALO    4     2       nest     2
+100    RTLO    4     2       nest     5
+101    PALO    5     2       nest     0
+102    RTLO    5     2       nest     1
+103    PALO    6     2       nest     1
+104    RTLO    6     2       nest     8
+105    PALO   10     2       nest    12
+106    RTLO   10     2       nest     0
+107    PALO   11     2       nest     2
+108    PALO   12     2       nest     9
+109    PALO   13     2       nest     0
+110    RTLO   13     2       nest     2
+111    PALO   14     2       nest     1
+112    PALO   15     2       nest     6
+113    PALO   16     2       nest     0
+114    PALO   17     2       nest     3
+115    PALO   18     2       nest     4
+116    PALO   19     2       nest     9
+117    RTLO   19     2       nest     5
+118    PALO   20     2       nest     4
+119    PALO   21     2       nest     3
+120    RTLO   21     2       nest     0
+121    PALO   22     2       nest     4
+122    RTLO   22     2       nest     8
+123    PALO   24     2       nest     7
+124    RTLO   24     2       nest     2</code></pre>
+<pre class="r"><code># Add observations with zero birds or nests during visits to all plots to data set# add records for plots visited that had 0 value for observations (count, pairm, nest), so they are represented in the data set
+names(data)</code></pre>
+<pre><code> [1] &quot;OBJECTID&quot;        &quot;count&quot;           &quot;species&quot;         &quot;Plot&quot;           
+ [5] &quot;Visit&quot;           &quot;nest&quot;            &quot;pair&quot;            &quot;countChicks&quot;    
+ [9] &quot;countEggs&quot;       &quot;activity&quot;        &quot;Notes&quot;           &quot;Timestamp_UTC&quot;  
+[13] &quot;Timestamp_Local&quot; &quot;Year&quot;            &quot;Day_of_Year&quot;     &quot;Latitude&quot;       
+[17] &quot;Longitude&quot;       &quot;Datum&quot;           &quot;GpsPoint_ID&quot;     &quot;Observation_ID&quot; </code></pre>
+<pre class="r"><code># Add visits with zero counts
+# RTLO
+# Visit 1 Birds and Nests
+# to do: create function with seq
+rplot1visit1 &lt;- c(501, 0, &quot;RTLO&quot;, 1, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-26 12:00&quot;, &quot;2022-06-26 13:00&quot;, 2022, NA, NA, NA, NA, NA, 501)
+rplot4visit1 &lt;- c(502, 0, &quot;RTLO&quot;, 4, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-26 12:00&quot;, &quot;2022-06-26 13:00&quot;, 2022, NA, NA, NA, NA, NA, 502)
+rplot7visit1 &lt;- c(503, 0, &quot;RTLO&quot;, 7, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-26 12:00&quot;, &quot;2022-06-26 13:00&quot;, 2022, NA, NA, NA, NA, NA, 503)
+rplot11visit1 &lt;- c(504, 0, &quot;RTLO&quot;, 11, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-28 12:00&quot;, &quot;2022-06-28 13:00&quot;, 2022, NA, NA, NA, NA, NA, 504)
+rplot14visit1 &lt;- c(505, 0, &quot;RTLO&quot;, 14, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-28 12:00&quot;, &quot;2022-06-28 13:00&quot;, 2022, NA, NA, NA, NA, NA, 505)
+rplot15visit1 &lt;- c(506, 0, &quot;RTLO&quot;, 15, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-29 12:00&quot;, &quot;2022-06-29 13:00&quot;, 2022, NA, NA, NA, NA, NA, 506)
+rplot16visit1 &lt;- c(507, 0, &quot;RTLO&quot;, 16, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-07-04 12:00&quot;, &quot;2022-07-04 13:00&quot;, 2022, NA, NA, NA, NA, NA, 507)
+rplot17visit1 &lt;- c(508, 0, &quot;RTLO&quot;, 17, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-28 12:00&quot;, &quot;2022-06-28 13:00&quot;, 2022, NA, NA, NA, NA, NA, 508)
+rplot18visit1 &lt;- c(509, 0, &quot;RTLO&quot;, 18, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-29 12:00&quot;, &quot;2022-06-29 13:00&quot;, 2022, NA, NA, NA, NA, NA, 509)
+rplot20visit1 &lt;- c(510, 0, &quot;RTLO&quot;, 20, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-07-05 12:00&quot;, &quot;2022-07-05 13:00&quot;, 2022, NA, NA, NA, NA, NA, 510)
+rplot25visit1 &lt;- c(511, 0, &quot;RTLO&quot;, 25, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-07-06 12:00&quot;, &quot;2022-07-06 13:00&quot;, 2022, NA, NA, NA, NA, NA, 511)
+
+# Visit 2 Birds and Nests
+rplot1visit2 &lt;- c(512, 0, &quot;RTLO&quot;, 1, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-28 12:00&quot;, &quot;2022-06-28 13:00&quot;, 2022, NA, NA, NA, NA, NA, 512)
+rplot7visit2 &lt;- c(513, 0, &quot;RTLO&quot;, 7, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-29 12:00&quot;, &quot;2022-06-29 13:00&quot;, 2022, NA, NA, NA, NA, NA, 513)
+rplot8visit2 &lt;- c(514, 0, &quot;RTLO&quot;, 8, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-30 12:00&quot;, &quot;2022-06-30 13:00&quot;, 2022, NA, NA, NA, NA, NA, 514)
+rplot9visit2 &lt;- c(515, 0, &quot;RTLO&quot;, 9, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-30 12:00&quot;, &quot;2022-06-30 13:00&quot;, 2022, NA, NA, NA, NA, NA, 515)
+rplot11visit2 &lt;- c(516, 0, &quot;RTLO&quot;, 11, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-30 12:00&quot;, &quot;2022-06-30 13:00&quot;, 2022, NA, NA, NA, NA, NA, 516)
+rplot12visit2 &lt;- c(517, 0, &quot;RTLO&quot;, 12, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-07-07 12:00&quot;, &quot;2022-07-07 13:00&quot;, 2022, NA, NA, NA, NA, NA, 517)
+rplot14visit2 &lt;- c(518, 0, &quot;RTLO&quot;, 14, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-30 12:00&quot;, &quot;2022-06-30 13:00&quot;, 2022, NA, NA, NA, NA, NA, 518)
+rplot15visit2 &lt;- c(519, 0, &quot;RTLO&quot;, 15, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-07-03 12:00&quot;, &quot;2022-07-03 13:00&quot;, 2022, NA, NA, NA, NA, NA, 519)
+rplot16visit2 &lt;- c(520, 0, &quot;RTLO&quot;, 16, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-07-07 12:00&quot;, &quot;2022-07-07 13:00&quot;, 2022, NA, NA, NA, NA, NA, 520)
+rplot17visit2 &lt;- c(521, 0, &quot;RTLO&quot;, 17, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-30 12:00&quot;, &quot;2022-06-30 13:00&quot;, 2022, NA, NA, NA, NA, NA, 521)
+rplot18visit2 &lt;- c(522, 0, &quot;RTLO&quot;, 18, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-07-03 12:00&quot;, &quot;2022-07-03 13:00&quot;, 2022, NA, NA, NA, NA, NA, 522)
+rplot20visit2 &lt;- c(523, 0, &quot;RTLO&quot;, 20, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-07-08 12:00&quot;, &quot;2022-07-08 13:00&quot;, 2022, NA, NA, NA, NA, NA, 523)
+
+# PALO
+# Visit 1 Birds and Nests
+pplot1visit1 &lt;- c(524, 0, &quot;PALO&quot;, 1, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-28 12:00&quot;, &quot;2022-06-28 13:00&quot;, 2022, NA, NA, NA, NA, NA, 524)
+pplot6visit1 &lt;- c(532, 0, &quot;PALO&quot;, 6, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-30 12:00&quot;, &quot;2022-06-30 13:00&quot;, 2022, NA, NA, NA, NA, NA, 532)
+pplot7visit1 &lt;- c(525, 0, &quot;PALO&quot;, 7, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-29 12:00&quot;, &quot;2022-06-29 13:00&quot;, 2022, NA, NA, NA, NA, NA, 525)
+pplot8visit1 &lt;- c(526, 0, &quot;PALO&quot;, 8, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-30 12:00&quot;, &quot;2022-06-30 13:00&quot;, 2022, NA, NA, NA, NA, NA, 526)
+pplot9visit1 &lt;- c(527, 0, &quot;PALO&quot;, 9, 1, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-30 12:00&quot;, &quot;2022-06-30 13:00&quot;, 2022, NA, NA, NA, NA, NA, 527)
+
+# Visit 2 Birds and Nests
+pplot1visit2 &lt;- c(528, 0, &quot;PALO&quot;, 1, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-28 12:00&quot;, &quot;2022-06-28 13:00&quot;, 2022, NA, NA, NA, NA, NA, 528)
+pplot7visit2 &lt;- c(529, 0, &quot;PALO&quot;, 7, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-29 12:00&quot;, &quot;2022-06-29 13:00&quot;, 2022, NA, NA, NA, NA, NA, 529)
+pplot8visit2 &lt;- c(530, 0, &quot;PALO&quot;, 8, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-30 12:00&quot;, &quot;2022-06-30 13:00&quot;, 2022, NA, NA, NA, NA, NA, 530)
+pplot9visit2 &lt;- c(531, 0, &quot;PALO&quot;, 9, 2, 0, 0, NA, NA, NA, &quot;added record for 0 obs&quot;, &quot;2022-06-30 12:00&quot;, &quot;2022-06-30 13:00&quot;, 2022, NA, NA, NA, NA, NA, 531)
+
+# to do: turn into list and create a loop
+# add these zero-count records to data frame
+data &lt;- rbind(data,rplot1visit1)
+data &lt;- rbind(data,rplot4visit1)
+data &lt;- rbind(data,rplot7visit1)
+data &lt;- rbind(data,rplot11visit1)
+data &lt;- rbind(data,rplot14visit1)
+data &lt;- rbind(data,rplot15visit1)
+data &lt;- rbind(data,rplot16visit1)
+data &lt;- rbind(data,rplot17visit1)
+data &lt;- rbind(data,rplot18visit1)
+data &lt;- rbind(data,rplot20visit1)
+data &lt;- rbind(data,rplot25visit1)
+
+data &lt;- rbind(data,rplot1visit2)
+data &lt;- rbind(data,rplot7visit2)
+data &lt;- rbind(data,rplot8visit2)
+data &lt;- rbind(data,rplot9visit2)
+data &lt;- rbind(data,rplot11visit2)
+data &lt;- rbind(data,rplot12visit2)
+data &lt;- rbind(data,rplot14visit2)
+data &lt;- rbind(data,rplot15visit2)
+data &lt;- rbind(data,rplot16visit2)
+data &lt;- rbind(data,rplot17visit2)
+data &lt;- rbind(data,rplot18visit2)
+data &lt;- rbind(data,rplot20visit2)
+
+data &lt;- rbind(data,pplot1visit1)
+data &lt;- rbind(data,pplot6visit1)
+data &lt;- rbind(data,pplot7visit1)
+data &lt;- rbind(data,pplot8visit1)
+data &lt;- rbind(data,pplot9visit1)
+
+data &lt;- rbind(data,pplot1visit2)
+data &lt;- rbind(data,pplot7visit2)
+data &lt;- rbind(data,pplot8visit2)
+data &lt;- rbind(data,pplot9visit2)
+
+#--
+
+data$count &lt;-as.numeric(data$count)
+data$nest &lt;- as.numeric(data$nest)
+data$pair &lt;- as.numeric(data$pair)
+
+# save data with zeros
+#write.csv(data, &quot;data/2022_ACP_loon_data_with_zeros.csv&quot;)
+
+# SURVEY-SCALE SUMMARIES ####
+
+# How many plots were surveyed?
+plots &lt;- unique(data$Plot)
+count_plots_surveyed &lt;- length(plots)
+
+# What was the timeframe?
+data$Timestamp_Local &lt;- as.POSIXct(data$Timestamp_Local, format = &quot;%Y-%m-%d %H:%M&quot;, tz = &quot;America/Anchorage&quot;)
+date_start &lt;- min(data$Timestamp_Local)
+date_end &lt;- max(data$Timestamp_Local)
+count_survey_days &lt;- length(unique(as.Date(data$Timestamp_UTC)))
+
+# How many plots were surveyed with 2 visits?
+twice &lt;- subset(data, Visit == 2)
+count_plots_2visits &lt;- length(unique(twice$Plot))
+
+# Which plot was visited once?
+twice_plot &lt;- twice$Plot
+all_plot &lt;- data$Plot
+setdiff(all_plot, twice_plot)</code></pre>
+<pre><code>[1] &quot;25&quot;</code></pre>
+<pre class="r"><code># How many total observations of loons
+count_tot_loon_obs &lt;- sum(data$count)
+# on how many plots
+nonzero_all_loon_obs &lt;- subset(data, count != 0)
+count_plots_tot_loon_obs &lt;- length(unique(nonzero_all_loon_obs$Plot))
+
+# how many total nests observations
+count_tot_loon_nest_obs &lt;- sum(data$nest)
+# on how many plots
+nonzero_all_nest_obs &lt;- subset(data, nest != 0)
+count_plots_tot_nest_obs &lt;- length(unique(nonzero_all_nest_obs$Plot))
+
+# SPECIES SCALE SUMMARIES ####
+# How many loon observations by species?
+count_obs_sp &lt;- aggregate(data$count ~ data$species, FUN = &quot;sum&quot;)
+print(count_obs_sp)</code></pre>
+<pre><code>  data$species data$count
+1         PALO        521
+2         RTLO        187</code></pre>
+<pre class="r"><code># On how many plots?
+all_obs &lt;- subset(data, count != 0)
+count_obs_plots_sp &lt;- aggregate(all_obs$Plot ~ all_obs$species, FUN = &quot;unique&quot;)
+sp_obs_plots &lt;- as.list(count_obs_plots_sp)
+count_plots_obs_palo &lt;- length(sp_obs_plots$`all_obs$Plot`[[1]])
+count_plots_obs_rtlo &lt;- length(sp_obs_plots$`all_obs$Plot`[[2]])
+
+# How many nest observations by species?
+count_nests_sp &lt;- aggregate(data$nest ~ data$species, FUN = &quot;sum&quot;)
+print(count_nests_sp)</code></pre>
+<pre><code>  data$species data$nest
+1         PALO       183
+2         RTLO        94</code></pre>
+<pre class="r"><code># On how many plots?
+all_nests &lt;- subset(data, nest != 0)
+count_nests_plots_sp &lt;- aggregate(all_nests$Plot ~ all_nests$species, FUN = &quot;unique&quot;)
+sp_nests_plots &lt;- as.list(count_nests_plots_sp)
+count_plots_nests_palo &lt;- length(sp_nests_plots$`all_nests$Plot`[[1]])
+count_plots_nests_rtlo &lt;- length(sp_nests_plots$`all_nests$Plot`[[2]])
+
+# COUNTS BY SPECIES AND PLOTS BY VISIT
+# Visit 1 total observations
+v1 &lt;-subset(data, Visit == 1)
+v1_obs&lt;- aggregate(v1, count ~ species, FUN = &quot;sum&quot;)
+v1_obs</code></pre>
+<pre><code>  species count
+1    PALO   245
+2    RTLO    81</code></pre>
+<pre class="r"><code>count_v1_palo_obs &lt;- v1_obs[1,2]
+count_v1_rtlo_obs &lt;- v1_obs[2,2]
+
+v1_nests&lt;- aggregate(v1, nest ~ species, FUN = &quot;sum&quot;)
+v1_nests</code></pre>
+<pre><code>  species nest
+1    PALO   82
+2    RTLO   40</code></pre>
+<pre class="r"><code>count_v1_palo_nests &lt;- v1_nests[1,2]
+count_v1_rtlo_nests &lt;- v1_nests[2,2]
+
+v2 &lt;- subset(data, Visit == 2)
+v2_obs&lt;- aggregate(v2, count ~ species, FUN = &quot;sum&quot;)
+v2_obs</code></pre>
+<pre><code>  species count
+1    PALO   276
+2    RTLO   106</code></pre>
+<pre class="r"><code>count_v2_palo_obs &lt;- v2_obs[1,2]
+count_v2_rtlo_obs &lt;- v2_obs[2,2]
+
+v2_nests&lt;- aggregate(v2, nest ~ species, FUN = &quot;sum&quot;)
+v2_nests</code></pre>
+<pre><code>  species nest
+1    PALO  101
+2    RTLO   54</code></pre>
+<pre class="r"><code>count_v2_palo_nests &lt;- v2_nests[1,2]
+count_v2_rtlo_nests &lt;- v2_nests[2,2]
+
+# plots with max counts
+sum_plot_vis_sp &lt;- aggregate(cbind(bird = data$count, nest = data$nest) ~ data$Plot + data$Visit + data$species, FUN =&quot;sum&quot;)
+colnames(sum_plot_vis_sp) &lt;- c(&quot;plot&quot;, &quot;visit&quot;, &quot;species&quot;, &quot;bird&quot;, &quot;nest&quot;)
+merge(aggregate(data = sum_plot_vis_sp, bird ~ species, max), sum_plot_vis_sp)</code></pre>
+<pre><code>  species bird plot visit nest
+1    PALO   75    2     2   27
+2    RTLO   29    2     2   13</code></pre>
+<pre class="r"><code>merge(aggregate(data = sum_plot_vis_sp, nest ~ species, max), sum_plot_vis_sp)</code></pre>
+<pre><code>  species nest plot visit bird
+1    PALO   27    2     2   75
+2    RTLO   13    2     2   29</code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.7.0
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.9       compiler_4.2.2   pillar_1.8.1     bslib_0.4.1     
+ [5] later_1.3.0      git2r_0.30.1     jquerylib_0.1.4  tools_4.2.2     
+ [9] getPass_0.2-2    digest_0.6.30    jsonlite_1.8.3   evaluate_0.18   
+[13] tibble_3.1.8     lifecycle_1.0.3  pkgconfig_2.0.3  rlang_1.0.6     
+[17] cli_3.4.1        rstudioapi_0.14  yaml_2.3.6       xfun_0.34       
+[21] fastmap_1.1.0    httr_1.4.4       stringr_1.4.1    knitr_1.40      
+[25] fs_1.5.2         vctrs_0.5.0      sass_0.4.2       rprojroot_2.0.3 
+[29] glue_1.6.2       R6_2.5.1         processx_3.8.0   fansi_1.0.3     
+[33] rmarkdown_2.17   callr_3.7.3      magrittr_2.0.3   whisker_0.4     
+[37] ps_1.7.2         promises_1.2.0.1 htmltools_0.5.3  httpuv_1.6.6    
+[41] utf8_1.2.2       stringi_1.7.8    cachem_1.0.6    </code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
