@@ -1,0 +1,35 @@
+---
+title: "Plot obs without species ID"
+author: "Dan Rizzolo"
+date: "`r Sys.Date()`"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(leaflet)
+# load data
+data_all <- read.csv("data/data_2024/2024_ACP_loon_data.csv")
+# subset to obs without species IDs
+noid <- subset(data_all, species == " ")
+```
+
+## Obs without species IDs
+...from the 2023 survey are plotted on this leaflet map. If you hover over a point, it will show the observation ID from the data table and the observer initials. We had the same thing happen last year and it is probably related to the data entry app, which shows RTLO as the default entry, but still needs to be entered, which is easy to forget to do, especially in busy plots. 
+
+Is it safe to deduce that these observations are all RTLO?
+
+```{r map, warning = FALSE}
+m <- leaflet() %>% 
+  setView(lng = -145, lat = 69.5, zoom = 7) %>% 
+  addProviderTiles("Esri.WorldImagery", group = "Satellite") %>% 
+  addCircles(data = noid,
+             ~ Longitude,
+             ~ Latitude,
+             color = "red",
+             label = paste(noid$OBJECTID, noid$Observer, sep = "_"))
+
+m
+```
+
