@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Dan Rizzolo" />
+<meta name="author" content="" />
 
 <meta name="date" content="2024-12-13" />
 
@@ -18,7 +18,7 @@
 <script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -35,6 +35,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
@@ -243,6 +244,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -305,6 +309,12 @@ div.tocify {
   border-radius: 0px;
 }
 
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
 
 </style>
 
@@ -346,6 +356,9 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
+  <a href="plot_obs_no_species_id.html">Map_2024 need species ID</a>
+</li>
+<li>
   <a href="about.html">About</a>
 </li>
 <li>
@@ -367,10 +380,18 @@ div.tocify {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore">Plot obs without species ID</h1>
-<h4 class="author">Dan Rizzolo</h4>
+<h4 class="author"></h4>
 <h4 class="date">2024-12-13</h4>
 
 </div>
@@ -531,15 +552,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZrtloacpsurveytreeef98dec913c14e5bfda42efb862dc11cd7789934targetblankef98deca">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZrtloacpsurveytree13e547ae3ef2ba4bd7a7b79a0c334c3a091f4dcetargetblank13e547aa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/DJRIZZ/rtlo_acp_survey/tree/ef98dec913c14e5bfda42efb862dc11cd7789934" target="_blank">ef98dec</a>
+<a href="https://github.com/DJRIZZ/rtlo_acp_survey/tree/13e547ae3ef2ba4bd7a7b79a0c334c3a091f4dce" target="_blank">13e547a</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZrtloacpsurveytreeef98dec913c14e5bfda42efb862dc11cd7789934targetblankef98deca"
+id="strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZrtloacpsurveytree13e547ae3ef2ba4bd7a7b79a0c334c3a091f4dcetargetblank13e547aa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -549,7 +570,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/DJRIZZ/rtlo_acp_survey/tree/ef98dec913c14e5bfda42efb862dc11cd7789934" target="_blank">ef98dec</a>.
+<a href="https://github.com/DJRIZZ/rtlo_acp_survey/tree/13e547ae3ef2ba4bd7a7b79a0c334c3a091f4dce" target="_blank">13e547a</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -629,6 +650,57 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/DJRIZZ/rtlo_acp_survey/blob/13e547ae3ef2ba4bd7a7b79a0c334c3a091f4dce/analysis/plot_obs_no_species_id.Rmd" target="_blank">13e547a</a>
+</td>
+<td>
+DJRIZZ
+</td>
+<td>
+2024-12-13
+</td>
+<td>
+add data
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/DJRIZZ/rtlo_acp_survey/blob/e6ee669b4c18030e38ff8276f11d09c4b6c44f2d/analysis/plot_obs_no_species_id.Rmd" target="_blank">e6ee669</a>
+</td>
+<td>
+DJRIZZ
+</td>
+<td>
+2024-12-13
+</td>
+<td>
+edit site yml
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/DJRIZZ/rtlo_acp_survey/007e747f39d0a0c7d0d048f7f21ca57bf04b2998/docs/plot_obs_no_species_id.html" target="_blank">007e747</a>
+</td>
+<td>
+DJRIZZ
+</td>
+<td>
+2024-12-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/DJRIZZ/rtlo_acp_survey/blob/ef98dec913c14e5bfda42efb862dc11cd7789934/analysis/plot_obs_no_species_id.Rmd" target="_blank">ef98dec</a>
 </td>
 <td>
@@ -650,12 +722,12 @@ map of obs without sp id
 </div>
 <div id="obs-without-species-ids" class="section level2">
 <h2>Obs without species IDs</h2>
-<p>…from the 2023 survey are plotted on this leaflet map. If you hover
-over a point, it will show the observation ID from the data table and
-the observer initials. We had the same thing happen last year and it is
-probably related to the data entry app, which shows RTLO as the default
-entry, but still needs to be entered, which is easy to forget to do,
-especially in busy plots.</p>
+<p>Observations from the 2023 survey with blank species ID fields are
+plotted on this leaflet map. If you hover over a point, it will show the
+observation ID from the data table and the observer initials. We had the
+same thing happen last year and it is probably related to the data entry
+app, which shows RTLO as the default entry, but still needs to be
+entered, which is easy to forget to do, especially in busy plots.</p>
 <p>Is it safe to deduce that these observations are all RTLO?</p>
 <pre class="r"><code>m &lt;- leaflet() %&gt;% 
   setView(lng = -145, lat = 69.5, zoom = 7) %&gt;% 
@@ -669,6 +741,64 @@ especially in busy plots.</p>
 m</code></pre>
 <div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e1e3757f040eaac33ef9" style="width:672px;height:480px;"></div>
 <script type="application/json" data-for="htmlwidget-e1e3757f040eaac33ef9">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[69.5,-145],7,[]],"calls":[{"method":"addProviderTiles","args":["Esri.WorldImagery",null,"Satellite",{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircles","args":[[70.19354,70.025913,70.086272,70.084175,70.093482,70.122134,70.092916,70.095113,69.99595,70.004899,70.01267,70.013577,70.029755],[-147.624304,-147.26168,-145.888824,-145.991015,-145.918567,-145.950715,-145.923639,-145.808938,-145.513899,-145.848845,-145.943819,-145.375518,-147.324714],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"red","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.2},null,null,["126_TKZ","167_BUK","198_TKZ","199_TKZ","200_TKZ","204_TKZ","209_TKZ","261_ZC","306_TKZ","309_TKZ","310_TKZ","333_ZC","453_ZC"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"limits":{"lat":[69.99595,70.19354],"lng":[-147.624304,-145.375518]}},"evals":[],"jsHooks":[]}</script>
+<p>These are the records in question…</p>
+<pre class="r"><code>noid</code></pre>
+<pre><code>    OBJECTID count species species2 nest pair countChick countEggs activity
+126      126     1               NA    1    0          0         1  By Nest
+167      167     2               NA    0    1          0        NA         
+198      198     1               NA    1    0          0         2  Flushed
+199      199     1               NA    1    0          0        NA  On Nest
+200      200     1               NA    1    0          0        NA  On Nest
+204      204     1               NA    1    0          0        NA  On Nest
+209      209     2               NA    0    1          0        NA         
+261      261     2               NA    1    1          0        NA  On Nest
+306      306     1               NA    1    0          0         2  Flushed
+309      309     1               NA    1    0          0         2  Flushed
+310      310     1               NA    1    0          0        NA  On Nest
+333      333     0               NA    0    0          0        NA         
+453      453     0               NA    0    0          0        NA         
+    Waypoint Notes            Timestamp_UTC              Timestamp_Local Year
+126       NA       2024-06-26T22:57:11.354Z 2024-06-26T14:57:11.354 AKDT 2024
+167       NA       2024-06-28T01:19:02.642Z 2024-06-27T17:19:02.642 AKDT 2024
+198       NA       2024-06-29T19:14:25.810Z 2024-06-29T11:14:25.810 AKDT 2024
+199       NA       2024-06-29T18:00:11.870Z 2024-06-29T10:00:11.870 AKDT 2024
+200       NA       2024-06-29T19:06:25.818Z 2024-06-29T11:06:25.818 AKDT 2024
+204       NA       2024-06-29T18:18:37.857Z 2024-06-29T10:18:37.857 AKDT 2024
+209       NA       2024-06-29T19:06:47.818Z 2024-06-29T11:06:47.818 AKDT 2024
+261       NA       2024-06-29T20:33:32.018Z 2024-06-29T12:33:32.018 AKDT 2024
+306       NA       2024-07-01T19:17:00.036Z 2024-07-01T11:17:00.036 AKDT 2024
+309       NA       2024-07-01T21:33:12.980Z 2024-07-01T13:33:12.980 AKDT 2024
+310       NA       2024-07-01T22:24:33.962Z 2024-07-01T14:24:33.962 AKDT 2024
+333       NA       2024-07-01T19:56:44.159Z 2024-07-01T11:56:44.159 AKDT 2024
+453       NA       2024-07-04T20:57:37.377Z 2024-07-04T12:57:37.377 AKDT 2024
+    Day_of_Yea Latitude Longitude Datum GpsPoint_ID Observation_ID Observer
+126        178 70.19354 -147.6243 WGS84       60546            126      TKZ
+167        179 70.02591 -147.2617 WGS84       76147            167      BUK
+198        181 70.08627 -145.8888 WGS84       99011            198      TKZ
+199        181 70.08418 -145.9910 WGS84       96765            199      TKZ
+200        181 70.09348 -145.9186 WGS84       98769            200      TKZ
+204        181 70.12213 -145.9507 WGS84       97323            204      TKZ
+209        181 70.09292 -145.9236 WGS84       98780            209      TKZ
+261        181 70.09511 -145.8089 WGS84      113729            261       ZC
+306        183 69.99595 -145.5139 WGS84      123860            306      TKZ
+309        183 70.00490 -145.8488 WGS84      127848            309      TKZ
+310        183 70.01267 -145.9438 WGS84      128341            310      TKZ
+333        183 70.01358 -145.3755 WGS84      137648            333       ZC
+453        186 70.02975 -147.3247 WGS84      204846            453       ZC
+    Seat Plot Visit
+126   LF   23     1
+167   LF   20     1
+198   LF    3     1
+199   LF    3     1
+200   LF    3     1
+204   LF    3     1
+209   LF    3     1
+261   LF    2     1
+306   LR    4     1
+309   LR    5     1
+310   LR    5     1
+333   LF    4     1
+453   LF   20     2</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -766,6 +896,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {
@@ -789,7 +924,7 @@ $(document).ready(function ()  {
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
     };
-    options.showAndHide = true;
+    options.showAndHide = false;
     options.smoothScroll = true;
 
     // tocify
