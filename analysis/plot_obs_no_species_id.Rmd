@@ -32,4 +32,7 @@ m <- leaflet() %>%
 
 m
 ```
-
+These are the records in question...
+```{r datatable, warning = FALSE}
+noid
+```
