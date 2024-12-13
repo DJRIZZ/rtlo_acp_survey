@@ -400,7 +400,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -411,8 +411,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -425,9 +425,9 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>rtlo_acp_survey/</code> <span
@@ -450,18 +450,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -552,15 +555,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZrtloacpsurveytree13e547ae3ef2ba4bd7a7b79a0c334c3a091f4dcetargetblank13e547aa">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZrtloacpsurveytreeaed2f892e3adb8bd9fe148654b5418d83bb02941targetblankaed2f89a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/DJRIZZ/rtlo_acp_survey/tree/13e547ae3ef2ba4bd7a7b79a0c334c3a091f4dce" target="_blank">13e547a</a>
+<a href="https://github.com/DJRIZZ/rtlo_acp_survey/tree/aed2f892e3adb8bd9fe148654b5418d83bb02941" target="_blank">aed2f89</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZrtloacpsurveytree13e547ae3ef2ba4bd7a7b79a0c334c3a091f4dcetargetblank13e547aa"
+id="strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZrtloacpsurveytreeaed2f892e3adb8bd9fe148654b5418d83bb02941targetblankaed2f89a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -570,7 +573,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/DJRIZZ/rtlo_acp_survey/tree/13e547ae3ef2ba4bd7a7b79a0c334c3a091f4dce" target="_blank">13e547a</a>.
+<a href="https://github.com/DJRIZZ/rtlo_acp_survey/tree/aed2f892e3adb8bd9fe148654b5418d83bb02941" target="_blank">aed2f89</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -587,7 +590,6 @@ were generated:
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/site_libs/
     Ignored:    code/code_2022/
     Ignored:    data/2022_ACP_loon_data.csv
     Ignored:    data/2022_ACP_loon_data_with_zeros.csv
@@ -598,6 +600,7 @@ Ignored files:
     Ignored:    data/data_2024/2024_ACP_Loon_Data.xlsx.xls
 
 Unstaged changes:
+    Modified:   analysis/plot_obs_no_species_id.Rmd
     Modified:   code/commands_rtlo_acp_workflowr.R
 
 </code></pre>
@@ -645,6 +648,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/DJRIZZ/rtlo_acp_survey/aed2f892e3adb8bd9fe148654b5418d83bb02941/docs/plot_obs_no_species_id.html" target="_blank">aed2f89</a>
+</td>
+<td>
+DJRIZZ
+</td>
+<td>
+2024-12-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -722,7 +742,7 @@ map of obs without sp id
 </div>
 <div id="obs-without-species-ids" class="section level2">
 <h2>Obs without species IDs</h2>
-<p>Observations from the 2023 survey with blank species ID fields are
+<p>Observations from the 2024 survey with blank species ID fields are
 plotted on this leaflet map. If you hover over a point, it will show the
 observation ID from the data table and the observer initials. We had the
 same thing happen last year and it is probably related to the data entry

@@ -16,7 +16,7 @@ noid <- subset(data_all, species == " ")
 ```
 
 ## Obs without species IDs
-Observations from the 2023 survey with blank species ID fields are plotted on this leaflet map. If you hover over a point, it will show the observation ID from the data table and the observer initials. We had the same thing happen last year and it is probably related to the data entry app, which shows RTLO as the default entry, but still needs to be entered, which is easy to forget to do, especially in busy plots. 
+Observations from the 2024 survey with blank species ID fields are plotted on this leaflet map. If you hover over a point, it will show the observation ID from the data table and the observer initials. We had the same thing happen last year and it is probably related to the data entry app, which shows RTLO as the default entry, but still needs to be entered, which is easy to forget to do, especially in busy plots. 
 
 Is it safe to deduce that these observations are all RTLO?
 

@@ -39,7 +39,7 @@ wflow_publish("analysis/about.Rmd", "initial commit")
 wflow_publish("analysis/index.Rmd", "initial commit")
 wflow_publish("analysis/license.Rmd", "initial commit")
 
-wflow_publish("analysis/plot_obs_no_species_id.Rmd", "plot obs with no sp id")
+wflow_publish("analysis/plot_obs_no_species_id.Rmd", "add data")
 
 # push files to GitHub, including html project file that can be viewed online, Note: follow prompts in R Console window ####
 
