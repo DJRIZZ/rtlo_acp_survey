@@ -7,5 +7,4 @@ output:
 editor_options:
   chunk_output_type: console
 ---
-
-.
+* [Obs without species ID](plot_obs_no_species_id.html)

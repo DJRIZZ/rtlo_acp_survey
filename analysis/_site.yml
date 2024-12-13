@@ -5,6 +5,8 @@ navbar:
   left:
   - text: Home
     href: index.html
+  - text: Map_2024 need species ID
+    href: plot_obs_no_species_id.html
   - text: About
     href: about.html
   - text: License
@@ -16,6 +18,8 @@ navbar:
 output:
   workflowr::wflow_html:
     toc: yes
-    toc_float: yes
-    theme: cosmo
+    toc_float:
+      collapsed: no
+    theme: flatly
+    code_folding: hide
     highlight: textmate
